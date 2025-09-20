@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likhith K - Full Stack Developer | AI Innovator</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">LK</div>
+            <div class="loader-bar">
+                <div class="loader-progress" id="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">LK</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <div class="status-dot"></div>
+                Available for opportunities
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="gradient-text">Likhith K</span>
+            </h1>
+            
+            <p class="hero-subtitle">Full Stack Developer & AI Innovator</p>
+            
+            <div class="typing-text" id="typing-text">
+                <span class="cursor">|</span>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i>
+                    View My Work
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/Krishlikhith" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/likhith-k-1a94b4258" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:krishlikhith@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+919741625200" class="social-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2 class="section-title gradient-text">About Me</h2>
+            <p class="section-subtitle">
+                Passionate developer crafting digital experiences with cutting-edge technology
+            </p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I'm a <span class="highlight">passionate Full Stack Developer</span> and AI enthusiast currently pursuing my Bachelor's in Computer Science at Sri Jayachamarajendra College of Engineering, Mysuru. 
+                </p>
+                <p>
+                    With expertise spanning both frontend and backend technologies, I specialize in creating <span class="highlight">scalable web applications</span> and exploring cutting-edge AI solutions. My journey is driven by curiosity, innovation, and a relentless pursuit of technological excellence.
+                </p>
+                <p>
+                    I believe in the power of technology to transform ideas into reality, and I'm committed to building solutions that make a meaningful impact.
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">9.07</div>
+                    <div class="stat-label">CGPA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years Learning</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Top 50</div>
+                    <div class="stat-label">Hackathon Rank</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="section-header">
+            <h2 class="section-title gradient-text">Education Timeline</h2>
+            <p class="section-subtitle">
+                Academic journey building a strong foundation in computer science and technology
+            </p>
+        </div>
+        
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-badge engineering">
+                        <i class="fas fa-graduation-cap"></i>
+                        Engineering
+                    </div>
+                    <h3 class="timeline-title">Sri Jayachamarajendra College of Engineering, Mysuru</h3>
+                    <div class="timeline-meta">
+                        <span class="timeline-date">Nov 2022 – Jun 2026</span>
+                        <span class="timeline-grade">CGPA: 9.07</span>
+                    </div>
+                    <p class="timeline-desc">Bachelor of Engineering in Computer Science</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-badge pre-university">
+                        <i class="fas fa-book"></i>
+                        Pre-University
+                    </div>
+                    <h3 class="timeline-title">Marimallappa PU College, Mysuru</h3>
+                    <div class="timeline-meta">
+                        <span class="timeline-date">Jun 2020 – May 2022</span>
+                        <span class="timeline-grade">96.67%</span>
+                    </div>
+                    <p class="timeline-desc">PCMB | KCET Rank: 2861</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-badge secondary">
+                        <i class="fas fa-school"></i>
+                        Secondary Education
+                    </div>
+                    <h3 class="timeline-title">Adarsha Vidyalaya, Mysuru</h3>
+                    <div class="timeline-meta">
+                        <span class="timeline-date">Jun 2019 – May 2020</span>
+                        <span class="timeline-grade">96.96%</span>
+                    </div>
+                    <p class="timeline-desc">Class X</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="section-header">
+            <h2 class="section-title gradient-text">Experience</h2>
+            <p class="section-subtitle">
+                Leadership roles and professional experiences shaping my journey
+            </p>
+        </div>
+        
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="experience-meta">
+                        <h3 class="experience-title">Leadership Project ReachOut</h3>
+                        <span class="experience-date">Oct 2023 – Sep 2024</span>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <p>Directed outreach in 4+ communities, coordinating 25+ volunteers and achieving 100% goal completion. Promoted stakeholder alignment and increased project transparency by 30%.</p>
+                </div>
+                <div class="experience-skills">
+                    <span class="exp-skill">Leadership</span>
+                    <span class="exp-skill">Project Management</span>
+                    <span class="exp-skill">Community Outreach</span>
+                </div>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="experience-meta">
+                        <h3 class="experience-title">FFE-FLY | The Competitiveness Mindset Institute, USA</h3>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <p>Collaborated in international teams to solve business challenges, contributing to 25% faster decisions via agile sprints. Enhanced adaptability and analytical thinking through high-pressure simulations.</p>
+                </div>
+                <div class="experience-skills">
+                    <span class="exp-skill">International Collaboration</span>
+                    <span class="exp-skill">Agile Methodology</span>
+                    <span class="exp-skill">Analytical Thinking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="section-header">
+            <h2 class="section-title gradient-text">Achievements & Recognition</h2>
+            <p class="section-subtitle">
+                Awards and certifications that validate my expertise and commitment to excellence
+            </p>
+        </div>
+        
+        <div class="achievements-grid">
+            <div class="achievement-card winner">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3 class="achievement-title">Winner – VVCE Infothon 4.0</h3>
+                <p class="achievement-desc">Secured first place in the prestigious coding competition at Vidyavardhaka College of Engineering</p>
+                <div class="achievement-badge">Winner</div>
+            </div>
+            
+            <div class="achievement-card winner">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3 class="achievement-title">Winner – Vertex Innovate 2025</h3>
+                <p class="achievement-desc">VIT Vellore's premier innovation challenge - recognized for outstanding technical solution</p>
+                <div class="achievement-badge">Winner</div>
+            </div>
+            
+            <div class="achievement-card top-performer">
+                <div class="achievement-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3 class="achievement-title">Top 50 – IndustriAI Hackathon</h3>
+                <p class="achievement-desc">IIT Madras - Outperformed 650+ teams in AI/ML competition</p>
+                <div class="achievement-badge">Top 50</div>
+            </div>
+            
+            <div class="achievement-card certification">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="achievement-title">Explore Emerging Tech</h3>
+                <p class="achievement-desc">IBM SkillsBuild certification in cutting-edge technology exploration</p>
+                <div class="achievement-badge">Certified</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <h2 class="section-title gradient-text">Skills & Technologies</h2>
+            <p class="section-subtitle">
+                A comprehensive toolkit for building modern, scalable applications
+            </p>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="skill-title">Programming Languages</h3>
+                <div class="skill-items">
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">TypeScript</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">C++</span>
+                    <span class="skill-item">C</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3 class="skill-title">Frontend Development</h3>
+                <div class="skill-items">
+                    <span class="skill-item">React.js</span>
+                    <span class="skill-item">Next.js</span>
+                    <span class="skill-item">HTML5</span>
+                    <span class="skill-item">CSS3</span>
+                    <span class="skill-item">Tailwind CSS</span>
+                    <span class="skill-item">Bootstrap</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3 class="skill-title">Backend Development</h3>
+                <div class="skill-items">
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Express.js</span>
+                    <span class="skill-item">MongoDB</span>
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">REST APIs</span>
+                    <span class="skill-item">GraphQL</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="skill-title">AI & Machine Learning</h3>
+                <div class="skill-items">
+                    <span class="skill-item">TensorFlow</span>
+                    <span class="skill-item">scikit-learn</span>
+                    <span class="skill-item">FastAPI</span>
+                    <span class="skill-item">Pandas</span>
+                    <span class="skill-item">NumPy</span>
+                    <span class="skill-item">OpenCV</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3 class="skill-title">DevOps & Cloud</h3>
+                <div class="skill-items">
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Kubernetes</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">GitHub</span>
+                    <span class="skill-item">CI/CD</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3 class="skill-title">Tools & Frameworks</h3>
+                <div class="skill-items">
+                    <span class="skill-item">VS Code</span>
+                    <span class="skill-item">Postman</span>
+                    <span class="skill-item">Figma</span>
+                    <span class="skill-item">Stripe API</span>
+                    <span class="skill-item">JWT</span>
+                    <span class="skill-item">Socket.io</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2 class="section-title gradient-text">Featured Projects</h2>
+            <p class="section-subtitle">
+                Innovative solutions showcasing full-stack development and AI integration
+            </p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="project-icon fas fa-users"></i>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">MentorConnect</h3>
+                    <p class="project-description">
+                        A dynamic mentoring platform featuring secure authentication, intelligent mentor matching, and integrated video conferencing for seamless virtual mentoring experiences.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Krishlikhith/Mentor-Connect" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="project-icon fas fa-seedling"></i>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">KisanMitra</h3>
+                    <p class="project-description">
+                        AI-powered agricultural platform providing intelligent crop and fertilizer recommendations using machine learning models and real-time environmental data analysis.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Krishlikhith/Krishi-Mitra" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="project-icon fas fa-utensils"></i>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">TastyRoute</h3>
+                    <p class="project-description">
+                        Full-stack food delivery application with secure authentication, real-time order tracking, integrated payment processing, and dynamic restaurant management.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">MERN Stack</span>
+                        <span class="tech-tag">Stripe API</span>
+                        <span class="tech-tag">JWT Auth</span>
+                        <span class="tech-tag">Socket.io</span>
+                        <span class="tech-tag">Redux</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Krishlikhith/Tastyroute---A-Full-stack-food-ordering-application" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Let's Connect</h2>
+                <p class="section-subtitle">
+                    Ready to collaborate on something amazing? Let's turn your ideas into reality.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-title">Email</h3>
+                    <div class="contact-info">
+                        <a href="mailto:krishlikhith@gmail.com">krishlikhith@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="contact-title">Phone</h3>
+                    <div class="contact-info">
+                        <a href="tel:+919741625200">+91 9741625200</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3 class="contact-title">LinkedIn</h3>
+                    <div class="contact-info">
+                        <a href="https://www.linkedin.com/in/likhith-k-1a94b4258" target="_blank">Connect with me</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="contact-title">GitHub</h3>
+                    <div class="contact-info">
+                        <a href="https://github.com/Krishlikhith" target="_blank">@Krishlikhith</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Likhith K. "Open to new opportunities and collaborations"</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
