@@ -24,6 +24,31 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
+// Mobile Navigation Toggle
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
+
 // Initialize Animations
 function initAnimations() {
     gsap.registerPlugin(ScrollTrigger, TextPlugin);
@@ -83,12 +108,14 @@ function initAnimations() {
 
     setTimeout(typeText, 1000);
 
-    // Scroll animations
+    // Scroll animations with mobile optimizations
+    const isMobile = window.innerWidth <= 768;
+    
     gsap.utils.toArray('.section-header').forEach(header => {
         gsap.from(header, {
             opacity: 0,
-            y: 50,
-            duration: 1,
+            y: isMobile ? 30 : 50,
+            duration: isMobile ? 0.8 : 1,
             scrollTrigger: {
                 trigger: header,
                 start: 'top 80%',
@@ -101,7 +128,7 @@ function initAnimations() {
     gsap.utils.toArray('.stat-card').forEach((card, index) => {
         gsap.from(card, {
             opacity: 0,
-            y: 30,
+            y: isMobile ? 20 : 30,
             duration: 0.8,
             delay: index * 0.1,
             scrollTrigger: {
@@ -115,7 +142,7 @@ function initAnimations() {
     gsap.utils.toArray('.skill-category').forEach((skill, index) => {
         gsap.from(skill, {
             opacity: 0,
-            y: 50,
+            y: isMobile ? 30 : 50,
             duration: 1,
             delay: index * 0.1,
             scrollTrigger: {
@@ -129,7 +156,7 @@ function initAnimations() {
     gsap.utils.toArray('.project-card').forEach((project, index) => {
         gsap.from(project, {
             opacity: 0,
-            y: 50,
+            y: isMobile ? 30 : 50,
             duration: 1,
             delay: index * 0.2,
             scrollTrigger: {
@@ -143,7 +170,7 @@ function initAnimations() {
     gsap.utils.toArray('.contact-card').forEach((card, index) => {
         gsap.from(card, {
             opacity: 0,
-            y: 30,
+            y: isMobile ? 20 : 30,
             duration: 0.8,
             delay: index * 0.1,
             scrollTrigger: {
@@ -158,7 +185,7 @@ function initAnimations() {
     gsap.utils.toArray('.timeline-item').forEach((item, index) => {
         gsap.from(item, {
             opacity: 0,
-            x: -50,
+            x: isMobile ? -30 : -50,
             duration: 1,
             delay: index * 0.2,
             scrollTrigger: {
@@ -173,7 +200,7 @@ function initAnimations() {
     gsap.utils.toArray('.experience-card').forEach((card, index) => {
         gsap.from(card, {
             opacity: 0,
-            y: 50,
+            y: isMobile ? 30 : 50,
             duration: 1,
             delay: index * 0.2,
             scrollTrigger: {
@@ -188,8 +215,8 @@ function initAnimations() {
     gsap.utils.toArray('.achievement-card').forEach((card, index) => {
         gsap.from(card, {
             opacity: 0,
-            y: 50,
-            scale: 0.8,
+            y: isMobile ? 30 : 50,
+            scale: isMobile ? 0.9 : 0.8,
             duration: 1,
             delay: index * 0.15,
             ease: 'back.out(1.7)',
@@ -202,10 +229,12 @@ function initAnimations() {
     });
 }
 
-// Navbar scroll effect
+// Navbar scroll effect with mobile optimizations
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 100) {
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 100) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
@@ -218,7 +247,8 @@ window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (window.pageYOffset >= sectionTop - 200) {
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200 && scrollY < sectionTop + sectionHeight - 200) {
             current = section.getAttribute('id');
         }
     });
@@ -231,59 +261,75 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Smooth scroll for navigation links
+// Smooth scroll for navigation links with mobile offset
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const isMobile = window.innerWidth <= 768;
+            const offset = isMobile ? 80 : 100;
+            const targetPosition = target.offsetTop - offset;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });
 });
 
-// Hover effects for interactive elements
+// Enhanced hover effects for interactive elements
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('mouseenter', () => {
-        gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+        if (window.innerWidth > 768) {
+            gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+        }
     });
     
     btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        if (window.innerWidth > 768) {
+            gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        }
     });
 });
 
 document.querySelectorAll('.social-link').forEach(link => {
     link.addEventListener('mouseenter', () => {
-        gsap.to(link, { scale: 1.1, rotation: 360, duration: 0.5, ease: 'back.out(1.7)' });
+        if (window.innerWidth > 768) {
+            gsap.to(link, { scale: 1.1, rotation: 360, duration: 0.5, ease: 'back.out(1.7)' });
+        }
     });
     
     link.addEventListener('mouseleave', () => {
-        gsap.to(link, { scale: 1, rotation: 0, duration: 0.3, ease: 'power2.out' });
+        if (window.innerWidth > 768) {
+            gsap.to(link, { scale: 1, rotation: 0, duration: 0.3, ease: 'power2.out' });
+        }
     });
 });
 
-// Parallax effect for floating shapes
+// Enhanced parallax effect with mobile considerations
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = scrolled * 0.5;
-    
-    document.querySelectorAll('.shape').forEach((shape, index) => {
-        const speed = (index + 1) * 0.1;
-        shape.style.transform = `translateY(${parallax * speed}px)`;
-    });
+    if (window.innerWidth > 768) {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.5;
+        
+        document.querySelectorAll('.shape').forEach((shape, index) => {
+            const speed = (index + 1) * 0.1;
+            shape.style.transform = `translateY(${parallax * speed}px)`;
+        });
+    }
 });
 
-// Add some interactive particles on mouse move
+// Mobile-optimized particle effect on mouse move
 document.addEventListener('mousemove', (e) => {
-    const cursor = { x: e.clientX, y: e.clientY };
-    
-    // Create a subtle particle effect
-    if (Math.random() > 0.98) {
-        createParticle(cursor.x, cursor.y);
+    if (window.innerWidth > 768) {
+        const cursor = { x: e.clientX, y: e.clientY };
+        
+        // Create a subtle particle effect (reduced frequency for performance)
+        if (Math.random() > 0.985) {
+            createParticle(cursor.x, cursor.y);
+        }
     }
 });
 
@@ -312,4 +358,243 @@ function createParticle(x, y) {
             particle.remove();
         }
     });
+}
+
+// Touch event handlers for mobile
+if ('ontouchstart' in window) {
+    document.querySelectorAll('.project-card, .skill-category, .achievement-card').forEach(card => {
+        card.addEventListener('touchstart', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    });
+}
+
+// Resize handler to optimize animations and effects
+window.addEventListener('resize', debounce(() => {
+    // Reinitialize ScrollTrigger on resize
+    ScrollTrigger.refresh();
+    
+    // Close mobile menu on desktop
+    if (window.innerWidth > 768) {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+}, 250));
+
+// Debounce function for performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Performance optimizations
+// Reduce motion for users with motion sensitivity
+if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('*').forEach(el => {
+        el.style.animationDuration = '0.01ms !important';
+        el.style.animationIterationCount = '1 !important';
+        el.style.transitionDuration = '0.01ms !important';
+    });
+}
+
+// Intersection Observer for better performance
+const observerOptions = {
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+        }
+    });
+}, observerOptions);
+
+// Observe all sections for lazy loading effects
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
+// Preload critical images for better performance
+const criticalImages = [
+    // Add any critical image URLs here if you have them
+];
+
+criticalImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
+
+// Service Worker registration for PWA functionality (optional)
+if ('serviceWorker' in navigator && 'caches' in window) {
+    window.addEventListener('load', () => {
+        // You can uncomment this if you want to add SW functionality
+        // navigator.serviceWorker.register('/sw.js')
+        //     .then(registration => console.log('SW registered'))
+        //     .catch(error => console.log('SW registration failed'));
+    });
+}
+
+// Enhanced error handling
+window.addEventListener('error', (e) => {
+    console.error('JavaScript error:', e.error);
+    // You can add error reporting here
+});
+
+// Keyboard navigation improvements
+document.addEventListener('keydown', (e) => {
+    // Escape key to close mobile menu
+    if (e.key === 'Escape') {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+    
+    // Tab navigation improvements
+    if (e.key === 'Tab') {
+        // Ensure focus is visible on keyboard navigation
+        document.body.classList.add('keyboard-nav');
+    }
+});
+
+// Remove keyboard navigation class on mouse interaction
+document.addEventListener('mousedown', () => {
+    document.body.classList.remove('keyboard-nav');
+});
+
+// Accessibility improvements
+document.addEventListener('DOMContentLoaded', () => {
+    // Add skip link for screen readers
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    skipLink.style.cssText = `
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--primary);
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 10001;
+        transition: top 0.3s;
+    `;
+    
+    skipLink.addEventListener('focus', () => {
+        skipLink.style.top = '6px';
+    });
+    
+    skipLink.addEventListener('blur', () => {
+        skipLink.style.top = '-40px';
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+    
+    // Add main content landmark
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+        heroSection.setAttribute('aria-label', 'Main content');
+        heroSection.id = 'main-content';
+    }
+    
+    // Improve button accessibility
+    document.querySelectorAll('.btn').forEach(btn => {
+        if (!btn.getAttribute('aria-label') && !btn.textContent.trim()) {
+            btn.setAttribute('aria-label', 'Button');
+        }
+    });
+    
+    // Improve navigation accessibility
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.setAttribute('role', 'navigation');
+        navbar.setAttribute('aria-label', 'Main navigation');
+    }
+    
+    // Mobile menu button accessibility
+    if (navToggle) {
+        navToggle.setAttribute('aria-label', 'Toggle navigation menu');
+        navToggle.setAttribute('aria-expanded', 'false');
+        
+        // Update aria-expanded when menu opens/closes
+        const originalToggle = navToggle.onclick;
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navLinks.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded.toString());
+        });
+    }
+    
+    // Add reduced motion CSS if user prefers it
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const style = document.createElement('style');
+        style.textContent = `
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+});
+
+// Performance monitoring
+const performanceObserver = new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+        // Log performance metrics for debugging
+        if (entry.entryType === 'navigation') {
+            console.log(`Page load time: ${entry.loadEventEnd - entry.loadEventStart}ms`);
+        }
+    });
+});
+
+// Start observing navigation performance
+if (window.PerformanceObserver) {
+    try {
+        performanceObserver.observe({ entryTypes: ['navigation', 'paint'] });
+    } catch (e) {
+        // Fallback for browsers that don't support certain entry types
+        console.log('Performance observer not fully supported');
+    }
+}
+
+// Final initialization check
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Portfolio loaded successfully');
+    
+    // Ensure GSAP is loaded
+    if (typeof gsap === 'undefined') {
+        console.error('GSAP not loaded. Animations may not work properly.');
+    }
+    
+    // Check if all critical elements exist
+    const criticalElements = ['navbar', 'nav-toggle', 'nav-links'];
+    criticalElements.forEach(id => {
+        if (!document.getElementById(id)) {
+            console.warn(`Critical element #${id} not found`);
+        }
+    });
+});
+
+// Export functions for testing (if needed)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        createParticle,
+        debounce
+    };
 }
