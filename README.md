@@ -1,5 +1,7 @@
 # Likhith K - Portfolio Website
 
+Site is live at https://krishlikhith.github.io/Portfolio/
+
 A modern, responsive portfolio website showcasing full-stack development skills and AI innovations. Built with vanilla HTML, CSS, and JavaScript featuring smooth animations, interactive elements, and a clean design.
 
 ## 🛠️ Technologies Used
